@@ -11,10 +11,18 @@ https://docs.amplication.com/docs/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsString, IsOptional } from "class-validator";
+import { IsString, IsDate, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
 @ObjectType()
 class Ariel {
+  @ApiProperty({
+    required: true,
+    type: String,
+  })
+  @IsString()
+  @Field(() => String)
+  id!: string;
+
   @ApiProperty({
     required: true,
   })
@@ -25,11 +33,11 @@ class Ariel {
 
   @ApiProperty({
     required: true,
-    type: String,
   })
-  @IsString()
-  @Field(() => String)
-  id!: string;
+  @IsDate()
+  @Type(() => Date)
+  @Field(() => Date)
+  updatedAt!: Date;
 
   @ApiProperty({
     required: false,
@@ -41,13 +49,5 @@ class Ariel {
     nullable: true,
   })
   name!: string | null;
-
-  @ApiProperty({
-    required: true,
-  })
-  @IsDate()
-  @Type(() => Date)
-  @Field(() => Date)
-  updatedAt!: Date;
 }
 export { Ariel };
