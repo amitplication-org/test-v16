@@ -1,6 +1,6 @@
 export type Ofek = {
-  createdAt: Date;
   id: string;
-  name: string | null;
+  createdAt: Date;
   updatedAt: Date;
+  name: string | null;
 };
