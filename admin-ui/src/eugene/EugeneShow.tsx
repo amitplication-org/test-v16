@@ -3,18 +3,18 @@ import {
   Show,
   SimpleShowLayout,
   ShowProps,
-  DateField,
   TextField,
+  DateField,
 } from "react-admin";
 
 export const EugeneShow = (props: ShowProps): React.ReactElement => {
   return (
     <Show {...props}>
       <SimpleShowLayout>
-        <DateField source="createdAt" label="Created At" />
         <TextField label="ID" source="id" />
-        <TextField label="name" source="name" />
+        <DateField source="createdAt" label="Created At" />
         <DateField source="updatedAt" label="Updated At" />
+        <TextField label="name" source="name" />
       </SimpleShowLayout>
     </Show>
   );
